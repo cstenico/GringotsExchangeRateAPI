@@ -26,7 +26,7 @@ namespace GringotsExchangeRateAPI.Controllers
         public string Get()
         {
             var rng = new Random();
-            return "Camila";
+            return "Hello World";
         }
     }
 }

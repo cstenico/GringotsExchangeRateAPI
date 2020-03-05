@@ -11,7 +11,7 @@ namespace GringotsExchangeRateAPI.Test
         [Fact]
         public void GetReturnsSomething(){
             var returnValue = controller.Get();
-            Assert.Equal("Camila", returnValue);
+            Assert.Equal("Hello World", returnValue);
         }
 
         [Fact]
