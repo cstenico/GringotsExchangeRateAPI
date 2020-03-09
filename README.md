@@ -3,4 +3,20 @@ An API that provides the value of the galleon (UK Wizard World Currency) in many
 
 This API focus is practicing C# and Azure DevOps, but I hope for it to be available for everyone
 
-##This is a work in progress
+Link to access: [https://gringotsexchangerateapi.azurewebsites.net/](https://gringotsexchangerateapi.azurewebsites.net/)
+
+## This is a work in progress
+
+## Usage
+
+### /gringots
+
+Returns the value of **1 (one) Galleon** in severel currencies
+
+### /gringots/{country}
+
+Return only the selected currency. Available currencies:
+CAD, HKD, ISK, PHP, DKK, HUF, CZK, RON, SEK, IDR, INR, BRL, RUB, HRK, JPY, THB, CHF, EUR, MYR, BGN, TRY, CNY, NOK, NZD, ZAR, USD, MXN, SGD, AUD, ILS, KRW, PLN
+
+## Swagger
+The documentation can be found in [https://gringotsexchangerateapi.azurewebsites.net/](https://gringotsexchangerateapi.azurewebsites.net/)
