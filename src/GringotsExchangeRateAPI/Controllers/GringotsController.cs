@@ -25,7 +25,7 @@ namespace GringotsExchangeRateAPI.Controllers
         public async Task<string> Get()
         {
 
-            var openExchangeData = await new GetOpenExchangeData().GetData();
+            var openExchangeData = await new GetOpenExchangeDataService().GetData();
 
             return "Hello World";
         }
