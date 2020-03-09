@@ -20,7 +20,6 @@ namespace GringotsExchangeRateAPI.Controllers
         {
             
         }
-
         [HttpGet]
         public async Task<string> Get()
         {
@@ -36,6 +35,26 @@ namespace GringotsExchangeRateAPI.Controllers
             var galleonRates = new CalculateGalleonPriceService().Calculate(openExchangeData);
 
             var galleonJSON = JsonSerializer.Serialize(galleonRates, options);
+
+            return galleonJSON;
+        }
+        [HttpGet("{country}")]
+        public async Task<string> GetFiltered(string country)
+        {
+
+            var options = new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                WriteIndented = true
+            };
+
+            var openExchangeData = await new GetOpenExchangeDataService().GetData();
+
+            var galleonRates = new CalculateGalleonPriceService().Calculate(openExchangeData);
+ 
+            var filteredExchangeRate = galleonRates.ExchangeRates.Where(currency => currency.Name == country);
+
+            var galleonJSON = JsonSerializer.Serialize(filteredExchangeRate, options);
 
             return galleonJSON;
         }
