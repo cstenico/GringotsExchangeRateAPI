@@ -13,6 +13,8 @@ namespace GringotsExchangeRateAPI
         public GalleonRates Calculate( OpenExchangeData currencies_data)
         {
             GalleonRates galleonRates = new GalleonRates();
+            galleonRates.ExchangeRates = new List<Currency>();
+            
             foreach (var currency_data in currencies_data.Rates){
                 Currency currency = new Currency(currency_data.Key, currency_data.Value * (decimal)5.00);
                 galleonRates.ExchangeRates.Add(currency);
