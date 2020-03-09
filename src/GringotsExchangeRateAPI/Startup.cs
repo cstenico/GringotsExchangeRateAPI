@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
+
 
 namespace GringotsExchangeRateAPI
 {
@@ -26,6 +28,26 @@ namespace GringotsExchangeRateAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Gringots API",
+                    Description = "See how much the Galleon pricing is in differente currencies",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Camila Stenico",
+                        Email = "stenico.camila@gmail.com",
+                        Url = new Uri("https://github.com/cstenico"),
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "MIT",
+                        Url = new Uri("https://example.com/license"),
+                    }
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,7 +58,15 @@ namespace GringotsExchangeRateAPI
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseSwagger();
+
             app.UseHttpsRedirection();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Gringots API");
+                c.RoutePrefix = string.Empty;
+            });
 
             app.UseRouting();
 
