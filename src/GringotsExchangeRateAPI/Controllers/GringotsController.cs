@@ -25,9 +25,19 @@ namespace GringotsExchangeRateAPI.Controllers
         public async Task<string> Get()
         {
 
+            var options = new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                WriteIndented = true
+            };
+
             var openExchangeData = await new GetOpenExchangeDataService().GetData();
 
-            return "Hello World";
+            var galleonRates = new CalculateGalleonPriceService().Calculate(openExchangeData);
+
+            var galleonJSON = JsonSerializer.Serialize(galleonRates, options);
+
+            return galleonJSON;
         }
     }
 }
