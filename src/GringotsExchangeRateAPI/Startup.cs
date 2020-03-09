@@ -34,7 +34,7 @@ namespace GringotsExchangeRateAPI
                 {
                     Version = "v1",
                     Title = "Gringots API",
-                    Description = "See how much the Galleon pricing is in differente currencies",
+                    Description = "An API that provides the value of the galleon (UK Wizard World Currency) in many currencies as possible. This API focus is practicing C# and Azure DevOps, but I hope for it to be available for everyone",
                     Contact = new OpenApiContact
                     {
                         Name = "Camila Stenico",
