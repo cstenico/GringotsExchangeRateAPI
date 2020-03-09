@@ -4,14 +4,13 @@ using GringotsExchangeRateAPI.Controllers;
 
 namespace GringotsExchangeRateAPI.Test
 {
-    public class UnitTest1
+    public class GringotsControllerTest
     {
 
-        WeatherForecastController controller = new WeatherForecastController();
+        GringotsController controller = new GringotsController();
         [Fact]
-        public void GetReturnsSomething(){
+        public void GetReturnsAGalleonRatesObject(){
             var returnValue = controller.Get();
-            Assert.Equal("Hello World", returnValue);
         }
 
         [Fact]
