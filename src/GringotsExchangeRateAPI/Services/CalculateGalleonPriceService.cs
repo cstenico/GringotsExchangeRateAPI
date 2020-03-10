@@ -23,14 +23,14 @@ namespace GringotsExchangeRateAPI
         }
 
         private decimal CalculateGalleonValue(decimal currency_price){
-            return currency_price * (decimal)5.00;
+            return Math.Round(( currency_price * (decimal)5.00) , 2);
         }
 
         private decimal CalculateSickleValue(decimal currency_price){
-            return (currency_price * (decimal)5.00) / 17;
+            return Math.Round( ((currency_price * (decimal)5.00) / 17) , 2);
         }
         private decimal CalculateKnutValue(decimal currency_price){
-            return (currency_price * (decimal)5.00) / 493;
+            return Math.Round( ((currency_price * (decimal)5.00) / 493), 2);
         }
     }
 }
