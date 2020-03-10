@@ -18,9 +18,9 @@ Example:
     "exchangeRates": [
         {
             "currencyName": "CAD",
-            "oneGalleon": 8.933659865,
-            "oneSickle": 0.5255094038235294117647058824,
-            "oneKnut": 0.018121013924949290060851927
+            "oneGalleon": 8.93,
+            "oneSickle": 0.53,
+            "oneKnut": 0.02
         }
     ]
 }
