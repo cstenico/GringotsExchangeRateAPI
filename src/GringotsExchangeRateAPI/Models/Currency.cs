@@ -6,17 +6,17 @@ namespace GringotsExchangeRateAPI
     public class Currency
     {
 
-        public Currency(string name, decimal galleonPrice, decimal sicklePrice, decimal knutPrice)
+        public Currency(string currencyName, decimal oneGalleon, decimal oneSickle, decimal oneKnut)
         {
-            Name = name;
-            GalleonPrice = galleonPrice;
-            SicklePrice = sicklePrice;
-            KnutPrice = knutPrice;
+            CurrencyName = currencyName;
+            OneGalleon = oneGalleon;
+            OneSickle = oneSickle;
+            OneKnut = oneKnut;
         }
-        public string Name {get; set;}
-        public decimal GalleonPrice {get; set;}
-        public decimal SicklePrice {get; set;}
-        public decimal KnutPrice {get; set;}
+        public string CurrencyName {get; set;}
+        public decimal OneGalleon {get; set;}
+        public decimal OneSickle {get; set;}
+        public decimal OneKnut {get; set;}
 
 
     }

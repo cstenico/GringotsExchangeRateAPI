@@ -52,7 +52,7 @@ namespace GringotsExchangeRateAPI.Controllers
 
             var galleonRates = new CalculateGalleonPriceService().Calculate(openExchangeData);
  
-            var filteredExchangeRate = galleonRates.ExchangeRates.Where(currency => currency.Name == country);
+            var filteredExchangeRate = galleonRates.ExchangeRates.Where(currency => currency.CurrencyName == country);
 
             var galleonJSON = JsonSerializer.Serialize(filteredExchangeRate, options);
 
