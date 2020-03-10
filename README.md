@@ -11,7 +11,20 @@ Link to access: [https://gringotsexchangerateapi.azurewebsites.net/](https://gri
 
 ### /gringots
 
-Returns the value of **1 (one) Galleon** in severel currencies
+Returns the value of **1 (one) Galleon**, **1 Sickle** and **1 Knut** in severel currencies
+Example:
+```json
+{
+    "exchangeRates": [
+        {
+            "name": "CAD",
+            "galleonPrice": 8.933659865,
+            "sicklePrice": 0.5255094038235294117647058824,
+            "knutPrice": 0.018121013924949290060851927
+        }
+    ]
+}
+```
 
 ### /gringots/{country}
 
