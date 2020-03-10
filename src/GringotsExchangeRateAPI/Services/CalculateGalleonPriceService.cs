@@ -10,16 +10,27 @@ namespace GringotsExchangeRateAPI
             
         }
 
-        public GalleonRates Calculate( OpenExchangeData currencies_data)
+        public GringotsRates Calculate( OpenExchangeData currencies_data)
         {
-            GalleonRates galleonRates = new GalleonRates();
-            galleonRates.ExchangeRates = new List<Currency>();
+            GringotsRates gringotsRates = new GringotsRates();
+            gringotsRates.ExchangeRates = new List<Currency>();
             
             foreach (var currency_data in currencies_data.Rates){
-                Currency currency = new Currency(currency_data.Key, currency_data.Value * (decimal)5.00);
-                galleonRates.ExchangeRates.Add(currency);
+                Currency currency = new Currency(currency_data.Key, CalculateGalleonValue(currency_data.Value), CalculateSickleValue(currency_data.Value), CalculateKnutValue(currency_data.Value));
+                gringotsRates.ExchangeRates.Add(currency);
             }
-            return galleonRates;
+            return gringotsRates;
+        }
+
+        private decimal CalculateGalleonValue(decimal currency_price){
+            return currency_price * (decimal)5.00;
+        }
+
+        private decimal CalculateSickleValue(decimal currency_price){
+            return (currency_price * (decimal)5.00) / 17;
+        }
+        private decimal CalculateKnutValue(decimal currency_price){
+            return (currency_price * (decimal)5.00) / 493;
         }
     }
 }
